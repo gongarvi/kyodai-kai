@@ -1,22 +1,79 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <svg
+      class="absolute w-full fill-theme-primary dark:fill-theme-dark-primary opacity-10 -z-10"
+      viewBox="0 0 960 119"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1"
+    >
+      <path
+        d="M0 81L26.7 86.5C53.3 92 106.7 103 160 99.3C213.3 95.7 266.7 77.3 320 66.3C373.3 55.3 426.7 51.7 480 49.7C533.3 47.7 586.7 47.3 640 45.2C693.3 43 746.7 39 800 51C853.3 63 906.7 91 933.3 105L960 119L960 0L933.3 0C906.7 0 853.3 0 800 0C746.7 0 693.3 0 640 0C586.7 0 533.3 0 480 0C426.7 0 373.3 0 320 0C266.7 0 213.3 0 160 0C106.7 0 53.3 0 26.7 0L0 0Z"
+        stroke-linecap="round"
+        stroke-linejoin="miter"
+      >
+      </path>
+    </svg>
+    <slot />
+  </body>
 </html>
+
+<style is:global>
+  html.dark {
+    --astro-code-color-text: #c9d1d9;
+    --astro-code-color-background: #0d1117;
+    --astro-code-token-constant: #79c0ff;
+    --astro-code-token-string: #a5d6ff;
+    --astro-code-token-comment: #8b949e;
+    --astro-code-token-keyword: #ff7b72;
+    --astro-code-token-parameter: #c9d1d9;
+    --astro-code-token-function: #d2a8ff;
+    --astro-code-token-string-expression: #a5d6ff;
+    --astro-code-token-punctuation: #c9d1d9;
+    --astro-code-token-link: #000012;
+    --tw-bg-opacity: 1;
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  }
+  :root {
+    --astro-code-color-text: #24292f;
+    --astro-code-color-background: #ffffff;
+    --astro-code-token-constant: #0550ae;
+    --astro-code-token-string: #24292f;
+    --astro-code-token-comment: #6e7781;
+    --astro-code-token-keyword: #cf222e;
+    --astro-code-token-parameter: #24292f;
+    --astro-code-token-function: #8250df;
+    --astro-code-token-string-expression: #0a3069;
+    --astro-code-token-punctuation: #24292f;
+    --astro-code-token-link: #000012;
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity));
+  }
+  * {
+    margin: 0;
+    background: transparent;
+  }
+  body {
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  }
+  svg {
+    fill: #d8b4fe;
+  }
+</style>
